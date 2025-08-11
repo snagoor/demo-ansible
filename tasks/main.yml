@@ -1,0 +1,13 @@
+- name: Create Resource Group if it does not exist
+  azure.azcollection.azure_rm_resourcegroup:
+    name: "{{ resource_group | default('test') }}"
+    location: "{{ az_location | default('demo') }}"
+    tags:
+      costcenter: "{{ tags.cost_center }}"
+      Solution: "{{ tags.solution }}"
+    state: present
+    register: resource_group
+ 
+  - name: Display Resource Group
+    debug:
+      var: resource_group.state.name
