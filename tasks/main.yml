@@ -8,6 +8,6 @@
     state: present
     register: resource_group
  
- - name: Display Resource Group
-   debug:
-     var: resource_group.state.name
+- name: Display Resource Group
+  debug:
+    var: resource_group.state.name
